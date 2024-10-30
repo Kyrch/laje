@@ -9,8 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'discord-dark': '#36393f',
+        'discord-accent': '#7289da',
+        'discord-text-muted': '#72767d',
       },
     },
   },
