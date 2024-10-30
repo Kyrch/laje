@@ -28,25 +28,30 @@ const CardsContainer: React.FC = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 text-white">
-            <h1 className="text-4xl font-bold mb-6">Laje da Otonokizaka</h1>
-            <p className="mb-10 text-lg text-center">{"Comunidade Brasileira de Love Live! com o objetivo de unir o pessoal que gosta de algo em comum <3"}</p>
+        <div className="min-h-screen flex flex-col-reverse lg:flex-row">
 
-            <InviteCard
-                serverName="Laje da Otonokizaka"
-                inviteLink="https://discord.gg/hRtKQ79vU6"
-                imageUrl="https://cdn.discordapp.com/attachments/1093626949814997043/1178395724220735609/renrap.png?ex=67231dca&is=6721cc4a&hm=14a35f15112d007c0d1af47485c6243deea0ac2f1d45ba5bf79c9bf1656f2048&"
-            />
+            <div className="flex-1 flex flex-col justify-center items-center relative">
+                <div className="absolute inset-0 bg-loveLiveBg bg-cover bg-center filter brightness-50"></div>
+                <div className="relative z-10 flex flex-col gap-4 items-center p-2">
+                    <div className="bg-opacity-60 p-4 text-center">
+                        <p className="text-loveLiveWhite text-md sm:text-lg lg:text-2xl font-bold">
+                            {"Comunidade Brasileira de Love Live! com o objetivo de unir o pessoal que gosta de algo em comum <3"}
+                        </p>
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-10">
+                        {admins.map((admin, index) => (
+                            <Card key={index} name={admin.name} imageUrl={admin.imageUrl} />
+                        ))}
+                    </div>
+                </div>
+            </div>
 
-            <div className="flex flex-wrap justify-center gap-4">
-                {admins.map((admin, index) => (
-                    <Card
-                        key={index}
-                        name={admin.name}
-                        imageUrl={admin.imageUrl}
-                        animationDelay={index * 100}
-                    />
-                ))}
+            <div className="md:flex-1 lg:flex-none lg:w-1/3 p-8 flex flex-col items-center justify-center bg-loveLiveWhite relative">
+                <InviteCard
+                    serverName="Laje da Otonokizaka"
+                    inviteLink="https://discord.gg/hRtKQ79vU6"
+                    imageUrl="https://cdn.discordapp.com/attachments/1093626949814997043/1178395724220735609/renrap.png?ex=67231dca&is=6721cc4a&hm=14a35f15112d007c0d1af47485c6243deea0ac2f1d45ba5bf79c9bf1656f2048&"
+                />
             </div>
         </div>
     );
