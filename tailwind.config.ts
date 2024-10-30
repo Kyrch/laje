@@ -8,10 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'loveLiveBg': "url('/assets/images/loveLiveDays.png')",
+      },
       colors: {
         'discord-dark': '#36393f',
         'discord-accent': '#7289da',
         'discord-text-muted': '#72767d',
+        'loveLiveWhite': "#eceff5",
+        'discordBlue': "#7289da", 
+        'discordBlueSecondary':"#627bb6"
       },
     },
   },
