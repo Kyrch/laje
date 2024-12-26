@@ -5,18 +5,23 @@ import InviteCard from '@/components/InviteCard';
 interface Admin {
     name: string;
     imageUrl: string;
-}
+};
+
+const GUILD_ID = '1062190604718714922';
 
 const CardsContainer: React.FC = () => {
     const [admins, setAdmins] = useState<Admin[]>([]);
+    const [serverAvatar, setServerAvatar] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchAdmins = async () => {
             try {
                 const response = await fetch('/api/admins');
+
                 if (!response.ok) {
                     throw new Error('Failed to fetch admins');
                 }
+
                 const data = await response.json();
                 setAdmins(data);
             } catch (error) {
@@ -24,12 +29,27 @@ const CardsContainer: React.FC = () => {
             }
         };
 
+        const fetchServerAvatar = async () => {
+            try {
+                const response = await fetch('/api/server');
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch server avatar');
+                }
+
+                const data = await response.json();
+                setServerAvatar(data.icon);
+            } catch (error) {
+                console.error('Error fetching server avatar:', error);
+            }
+        };
+
         fetchAdmins();
+        fetchServerAvatar();
     }, []);
 
     return (
         <div className="min-h-screen flex flex-col-reverse lg:flex-row">
-
             <div className="flex-1 flex flex-col justify-center items-center relative">
                 <div className="absolute inset-0 bg-loveLiveBg bg-cover bg-center filter brightness-50"></div>
                 <div className="relative z-10 flex flex-col gap-4 items-center p-2">
@@ -50,7 +70,7 @@ const CardsContainer: React.FC = () => {
                 <InviteCard
                     serverName="Laje da Otonokizaka"
                     inviteLink="https://discord.gg/hRtKQ79vU6"
-                    imageUrl="https://cdn.discordapp.com/attachments/1093626949814997043/1178395724220735609/renrap.png?ex=67231dca&is=6721cc4a&hm=14a35f15112d007c0d1af47485c6243deea0ac2f1d45ba5bf79c9bf1656f2048&"
+                    imageUrl={`https://cdn.discordapp.com/icons/${GUILD_ID}/${serverAvatar}.gif`}
                 />
             </div>
         </div>
