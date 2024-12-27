@@ -11,7 +11,7 @@ const Card: React.FC<CardProps> = ({ name, imageUrl }) => {
             <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-loveLiveWhite">
                 <img src={imageUrl} alt={name} className="w-full h-full object-cover " />
             </div>
-            <h3 className="text-md sm:text-xl text-loveLiveWhite font-semibold">{name}</h3>
+            <h3 className="text-md text-loveLiveWhite font-semibold w-40 h-8 flex items-center justify-center">{name}</h3>
         </div>
     );
 };

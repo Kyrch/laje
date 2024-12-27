@@ -66,7 +66,7 @@ const CardsContainer: React.FC = () => {
                 </div>
             </div>
 
-            <div className="md:flex-1 lg:flex-none lg:w-1/3 p-8 flex flex-col items-center justify-center bg-loveLiveWhite relative">
+            <div className="md:flex-1 lg:flex-none lg:w-1/4 p-8 flex flex-col items-center justify-center bg-loveLiveWhite relative">
                 <InviteCard
                     serverName="Laje da Otonokizaka"
                     inviteLink="https://discord.gg/hRtKQ79vU6"
