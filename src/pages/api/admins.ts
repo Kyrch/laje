@@ -15,6 +15,8 @@ interface Member {
     roles: string[];
 };
 
+const idOrder = ['435919278164803586', '230307246540718080', '458070564918132746', '730464471536893983', '414064933979029553', '695678602179641425'];
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         const response = await fetch(`https://discord.com/api/v10/guilds/${GUILD_ID}/members?limit=1000`, {
@@ -30,6 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const data: Array<Member> = await response.json();
         const adminData = data
             .filter((member) => member.roles.includes(ADMIN_ROLE_ID))
+            .sort((a, b) => idOrder.indexOf(a.user.id) - idOrder.indexOf(b.user.id))
             .map((member) => ({
                 name: member.nick || member.user.global_name || member.user.username,
                 imageUrl: resolveAvatar(member),

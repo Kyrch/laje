@@ -7,11 +7,8 @@ interface Admin {
     imageUrl: string;
 };
 
-const GUILD_ID = '1062190604718714922';
-
 const CardsContainer: React.FC = () => {
     const [admins, setAdmins] = useState<Admin[]>([]);
-    const [serverAvatar, setServerAvatar] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchAdmins = async () => {
@@ -29,23 +26,7 @@ const CardsContainer: React.FC = () => {
             }
         };
 
-        const fetchServerAvatar = async () => {
-            try {
-                const response = await fetch('/api/server');
-
-                if (!response.ok) {
-                    throw new Error('Failed to fetch server avatar');
-                }
-
-                const data = await response.json();
-                setServerAvatar(data.icon);
-            } catch (error) {
-                console.error('Error fetching server avatar:', error);
-            }
-        };
-
         fetchAdmins();
-        fetchServerAvatar();
     }, []);
 
     return (
@@ -70,7 +51,7 @@ const CardsContainer: React.FC = () => {
                 <InviteCard
                     serverName="Laje da Otonokizaka"
                     inviteLink="https://discord.gg/hRtKQ79vU6"
-                    imageUrl={`https://cdn.discordapp.com/icons/${GUILD_ID}/${serverAvatar}.gif`}
+                    imageUrl={`https://media.discordapp.net/attachments/1093626949814997043/1178395667920584754/ezgif.com-gif-maker.gif?ex=67d5c0fc&is=67d46f7c&hm=d67b50ca167e10acb488ee8939c2fc973eb529041da3275d6c0f8f530c8778c0&=&width=256&height=238`}
                 />
             </div>
         </div>
