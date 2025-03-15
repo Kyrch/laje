@@ -51,7 +51,7 @@ const CardsContainer: React.FC = () => {
                 <InviteCard
                     serverName="Laje da Otonokizaka"
                     inviteLink="https://discord.gg/hRtKQ79vU6"
-                    imageUrl={`https://media.discordapp.net/attachments/1093626949814997043/1178395667920584754/ezgif.com-gif-maker.gif?ex=67d5c0fc&is=67d46f7c&hm=d67b50ca167e10acb488ee8939c2fc973eb529041da3275d6c0f8f530c8778c0&=&width=256&height=238`}
+                    imageUrl={`https://imgur.com/LbnpY4X.gif`}
                 />
             </div>
         </div>
